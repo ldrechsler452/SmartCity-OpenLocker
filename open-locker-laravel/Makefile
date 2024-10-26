@@ -4,6 +4,12 @@ export DOCKER_COMPOSE_CMD = ./vendor/bin/sail
 help: ## shows this help
 	@awk 'BEGIN {FS = ":.*?## "} /^[a-zA-Z_\-\.]+:.*?## / {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}' $(MAKEFILE_LIST)
 
+setup:
+	composer install
+	make start
+	$(SAIL_CMD) artisan key:generate
+	make seed
+
 .PHONY: start
 start: ## start containers
 	$(DOCKER_COMPOSE_CMD) up -d --remove-orphans
