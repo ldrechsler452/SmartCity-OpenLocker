@@ -18,6 +18,7 @@ class LockerFactory extends Factory
     {
         return [
             'designation' => fake()->randomNumber(3),
+            'is_open' => fake()->boolean(20),
             'last_opened_at' => fake()->dateTimeThisMonth(),
         ];
     }
