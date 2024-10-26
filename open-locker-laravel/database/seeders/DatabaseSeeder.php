@@ -29,4 +29,5 @@ class DatabaseSeeder extends Seeder
                 'station_id' => $station->getId(),
             ]);
         }
+    }
 }
