@@ -13,10 +13,6 @@ class Locker extends Model
     /** @use HasFactory<\Database\Factories\LockerFactory> */
     use HasFactory;
 
-    protected $with = [
-        'station'
-    ];
-
     // Relations
 
     public function station(): BelongsTo
