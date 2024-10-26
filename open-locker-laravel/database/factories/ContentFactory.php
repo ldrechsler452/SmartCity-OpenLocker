@@ -31,7 +31,9 @@ class ContentFactory extends Factory
         ];
 
         $isInUse = fake()->boolean(20);
-        $randomUser = User::all()->random()->first();
+        $randomUser = User::query()
+            ->where('is_admin', '=', false)
+            ->first();
 
         return [
             'name' => $devices[array_rand($devices)],
