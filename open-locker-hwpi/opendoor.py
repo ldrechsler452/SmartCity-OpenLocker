@@ -8,10 +8,11 @@ import RPi.GPIO as GPIO
 import time
 
 # Constants.
+PWM_FREQUENCY = 50
 DOOR1_GPIO_PIN = 12
 DOOR2_GPIO_PIN = 13
-SERVO_LEFT_DUTYCYCLE = 0.02
-SERVO_RIGHT_DUTYCYCLE = 0.13
+SERVO_LEFT_DUTYCYCLE = 10.8
+SERVO_RIGHT_DUTYCYCLE = 6.3
 SERVO_DURATION = 3
 EXITCODE_OK = 0
 EXITCODE_ERROR = 2
@@ -29,11 +30,10 @@ match doorIndex:
 
 
 # Set-up.
-GPIO.setmode(GPIO.BOARD)
+GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
-frequence = 50
 GPIO.setup(pwm_gpio, GPIO.OUT)
-pwm = GPIO.PWM(pwm_gpio, frequence)
+pwm = GPIO.PWM(pwm_gpio, PWM_FREQUENCY)
 
 # Release door lock.
 pwm.start(SERVO_RIGHT_DUTYCYCLE)
