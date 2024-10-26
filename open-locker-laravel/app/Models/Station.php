@@ -20,7 +20,10 @@ class Station extends Model
 
     public function lockers(): HasMany
     {
-        return $this->hasMany(Locker::class);
+        return $this->hasMany(
+            related: Locker::class,
+            localKey: 'station_id'
+        );
     }
 
     public function getLockers()
