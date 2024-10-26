@@ -13,9 +13,9 @@ use Inertia\Inertia;
 
 Route::get('/', [WelcomeController::class, 'index'])->name('welcome');
 
-Route::get('/dashboard', [DashboardController::class, 'show'])
+Route::get('/dashboard', [DashboardController::class, 'dashboard'])
     ->middleware(['auth', 'verified'])
-    ->name('dashboard.show');
+    ->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
