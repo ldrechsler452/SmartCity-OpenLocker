@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Locker;
+use App\Models\Station;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -19,8 +20,12 @@ class DatabaseSeeder extends Seeder
         User::factory()->create([
             'name' => 'Test User',
             'email' => 'test@example.com',
+            'password' => '123',
         ]);
 
-        Locker::factory(5)->create();
+        $station = Station::factory()->create();
+        Locker::factory(5)->create([
+            'station_id' => $station->getId(),
+        ]);
     }
 }
