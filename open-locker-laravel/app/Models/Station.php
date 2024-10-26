@@ -12,18 +12,11 @@ class Station extends Model
     /** @use HasFactory<\Database\Factories\StationFactory> */
     use HasFactory;
 
-    protected $with = [
-        'lockers'
-    ];
-
     // Relations
 
     public function lockers(): HasMany
     {
-        return $this->hasMany(
-            related: Locker::class,
-            localKey: 'station_id'
-        );
+        return $this->hasMany(Locker::class);
     }
 
     public function getLockers()

@@ -11,7 +11,7 @@ class StationController extends Controller
     public function index(): Response
     {
         return Inertia::render('Stations/Index', [
-            'stations' => Station::all(),
+            'stations' => Station::all()->load('lockers'),
         ]);
     }
 }
