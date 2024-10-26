@@ -3,6 +3,7 @@
 use App\Http\Controllers\LockerController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\StationController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\WelcomeController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -19,6 +20,9 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+// Users
+Route::get('/users', [UserController::class, 'index'])->name('users.index');
 
 // Lockers
 Route::get('stations/{station:id}/lockers', [LockerController::class, 'index'])->name('lockers.index');
