@@ -9,7 +9,7 @@ use Inertia\Response;
 
 class DashboardController extends Controller
 {
-    public function show(): Response
+    public function dashboard(): Response
     {
         $content = Content::query();
 
