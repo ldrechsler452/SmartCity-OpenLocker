@@ -7,6 +7,7 @@ use Illuminate\Cache\Lock;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Locker extends Model
 {
@@ -29,6 +30,21 @@ class Locker extends Model
     {
         $this->setAttribute('station_id', $station->getId());
         return $this;
+    }
+
+    public function content(): BelongsTo
+    {
+        return $this->belongsTo(Content::class);
+    }
+
+    public function getContent(): ?Content
+    {
+        return $this->getAttribute('content');
+    }
+
+    public function setContent(Content $content): Locker
+    {
+        return $this->setAttribute('content_id', $content->getId());
     }
 
     // Attributes

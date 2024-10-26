@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Content;
 use App\Models\Locker;
 use App\Models\Station;
 use App\Models\User;
@@ -25,9 +26,17 @@ class DatabaseSeeder extends Seeder
 
         for ($i = 0; $i < 3; $i++) {
             $station = Station::factory()->create();
-            Locker::factory(5)->create([
+            $lockers = Locker::factory(3)->create([
                 'station_id' => $station->getId(),
             ]);
+
+            /** @var Locker[] $lockers */
+            foreach ($lockers as $locker) {
+                $content = Content::factory()->create();
+                $locker
+                    ->setContent($content)
+                    ->save();
+            }
         }
     }
 }
