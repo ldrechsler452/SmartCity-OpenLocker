@@ -27,7 +27,7 @@ Route::middleware('auth')->group(function () {
 });
 
 // Lockers
-Route::get('/lockers', [LockerController::class, 'index'])->name('lockers.index');
+Route::get('stations/{station:id}/lockers', [LockerController::class, 'index'])->name('lockers.index');
 
 // Stations
 Route::get('/stations', [StationController::class, 'index'])->name('stations.index');
