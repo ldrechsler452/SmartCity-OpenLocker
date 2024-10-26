@@ -2,7 +2,7 @@ import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Station } from '@/types';
 import { Head, Link } from '@inertiajs/react';
 import { useState } from 'react';
-import Select, { ActionMeta, Options, SingleValue } from 'react-select';
+import Select, { ActionMeta, SingleValue } from 'react-select';
 
 export default function Stations({ stations }: { stations: Station[] }) {
     const [filteredStations, setFilteredStations] = useState(stations);
@@ -51,13 +51,21 @@ export default function Stations({ stations }: { stations: Station[] }) {
                                     />
                                 </div>
                                 {filteredStations.map((station) => (
-                                    <div key={station.id} className="w-100 p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                                        <Link href={`/stations/${station.id}/lockers`}>
-                                            <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{station.name}</h5>
-                                        </Link>
-                                        <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
-                                            Lockers: {station.lockers?.length ?? 0}
-                                        </p>
+                                    <div key={station.id} className="w-100 p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 flex gap-2">
+                                        <div className="flex-grow">
+                                            <Link href={`/stations/${station.id}/lockers`}>
+                                                <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{station.name}</h5>
+                                            </Link>
+                                            <div className="grid grid-cols-[auto_1fr] gap-4">
+                                                <div>Adresse:</div>
+                                                <div>{station.address}</div>
+                                                <div>Entfernung:</div>
+                                                <div>{station.distance} km</div>
+                                            </div>
+                                        </div>
+                                        <div className="w-2/5">
+                                            <img src={station.image} alt={`${station.name} image`} className="object-cover h-full w-full" />
+                                        </div>
                                     </div>)
                                 )}
                             </div>
