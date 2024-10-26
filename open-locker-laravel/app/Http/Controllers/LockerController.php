@@ -24,14 +24,24 @@ class LockerController extends Controller
         ]);
     }
 
-    public function open(Locker $locker): void
+    public function open(Locker $locker): Response
     {
         // TODO: Tell API to open the door
+
+        $result_code = null;
+        $result = [];
+        exec("python3 /var/scripts/opendoor.py " . escapeshellarg($locker->getId()), $result, $result_code );
 
         $locker
             ->open()
             ->setLastOpenedAt(now())
             ->save();
+
+        return Inertia::render('Lockers/Open', [
+            'locker' => $locker,
+        ]);
+
+
     }
 
     public function close(Locker $locker): void
