@@ -6,8 +6,9 @@ help: ## shows this help
 
 setup:
 	composer install
-	make start
-	$(SAIL_CMD) artisan key:generate
+	$(DOCKER_COMPOSE_CMD) up -d --remove-orphans
+	$(DOCKER_COMPOSE_CMD) artisan key:generate
+	$(DOCKER_COMPOSE_CMD) npm i
 	make seed
 
 .PHONY: start
