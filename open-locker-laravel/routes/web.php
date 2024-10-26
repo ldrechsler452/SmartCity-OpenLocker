@@ -25,10 +25,10 @@ Route::middleware('auth')->group(function () {
 Route::get('/users', [UserController::class, 'index'])->name('users.index');
 
 // Lockers
-Route::get('stations/{station:id}/lockers', [LockerController::class, 'index'])->name('lockers.index');
-Route::get('lockers/{locker:id}', [LockerController::class, 'show'])->name('lockers.show');
-Route::get('lockers/{locker:id}/open', [LockerController::class, 'open'])->name('lockers.open');
-Route::get('lockers/{locker:id}/close', [LockerController::class, 'close'])->name('lockers.close');
+Route::get('/stations/{station:id}/lockers', [LockerController::class, 'index'])->name('lockers.index');
+Route::get('/lockers/{locker:id}', [LockerController::class, 'show'])->name('lockers.show');
+Route::get('/lockers/{locker:id}/open', [LockerController::class, 'open'])->name('lockers.open');
+Route::get('/lockers/{locker:id}/close', [LockerController::class, 'close'])->name('lockers.close');
 
 // Stations
 Route::get('/stations', [StationController::class, 'index'])->name('stations.index');
