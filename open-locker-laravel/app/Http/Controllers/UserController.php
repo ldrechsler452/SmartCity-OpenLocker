@@ -14,4 +14,11 @@ class UserController extends Controller
             'users' => User::all(),
         ]);
     }
+
+    public function show(User $user): Response
+    {
+        return Inertia::render('Users/Show', [
+            'user' => $user,
+        ]);
+    }
 }

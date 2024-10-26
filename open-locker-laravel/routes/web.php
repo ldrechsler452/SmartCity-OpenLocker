@@ -23,6 +23,7 @@ Route::middleware('auth')->group(function () {
 
 // Users
 Route::get('/users', [UserController::class, 'index'])->name('users.index');
+Route::get('/users/{user:id}', [UserController::class, 'show'])->name('users.show');
 
 // Lockers
 Route::get('/stations/{station:id}/lockers', [LockerController::class, 'index'])->name('lockers.index');
