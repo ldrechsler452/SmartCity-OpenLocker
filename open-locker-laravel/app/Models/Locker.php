@@ -27,7 +27,7 @@ class Locker extends Model
         return $this;
     }
 
-    public function getLastOpenedAt(): Carbon
+    public function getLastOpenedAt(): ?Carbon
     {
         return $this->getAttribute('last_opened_at');
     }
