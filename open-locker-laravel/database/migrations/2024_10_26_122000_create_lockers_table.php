@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('lockers', function (Blueprint $table) {
             $table->id();
             $table->string('designation')->unique();
+            $table->boolean('is_open')->default(false);
             $table->timestamp('last_opened_at')->nullable();
             $table->timestamps();
         });
