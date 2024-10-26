@@ -22,8 +22,8 @@ export type Station = {
     created_at: Date;
     updated_at: Date;
     image: string;
-    address: string
-    distance: number
+    address: string;
+    distance: number;
 }
 
 export type TLockerItem = {
