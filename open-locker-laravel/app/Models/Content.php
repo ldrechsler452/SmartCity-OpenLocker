@@ -25,7 +25,7 @@ class Content extends Model
         return $this->getAttribute('user');
     }
 
-    public function setUser(User $user): Content
+    public function setUser(?User $user): Content
     {
         $this->setAttribute('user_id', $user->getId());
         return $this;
@@ -56,6 +56,17 @@ class Content extends Model
     public function setName(string $name): Content
     {
         $this->setAttribute('name', $name);
+        return $this;
+    }
+
+    public function getTakenAt(): ?Carbon
+    {
+        return $this->getAttribute('taken_at');
+    }
+
+    public function setTakenAt(?Carbon $takenAt): Content
+    {
+        $this->setAttribute('taken_at', $takenAt);
         return $this;
     }
 

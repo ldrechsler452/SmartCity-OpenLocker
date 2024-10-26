@@ -39,5 +39,7 @@ Route::get('/stations', [StationController::class, 'index'])->name('stations.ind
 
 // Contents
 Route::get('/contents', [ContentController::class, 'index'])->name('content.index');
+Route::get('/contents/{content:id}/take', [ContentController::class, 'take'])->name('content.take');
+Route::get('/contents/{content:id}/return', [ContentController::class, 'return'])->name('content.return');
 
 require __DIR__.'/auth.php';

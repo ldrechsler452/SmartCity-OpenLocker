@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Content;
 use App\Models\Locker;
 use App\Models\Station;
+use App\Services\ScriptService;
 use Inertia\Inertia;
 use Inertia\Response;
 
@@ -26,11 +27,7 @@ class LockerController extends Controller
 
     public function open(Locker $locker): Response
     {
-        // TODO: Tell API to open the door
-
-        $result_code = null;
-        $result = [];
-        exec("python3 /var/scripts/opendoor.py " . escapeshellarg($locker->getId()), $result, $result_code );
+        ScriptService::openLocker($locker);
 
         $locker
             ->open()
@@ -40,12 +37,11 @@ class LockerController extends Controller
         return Inertia::render('Lockers/Open', [
             'locker' => $locker,
         ]);
-
-
     }
 
     public function close(Locker $locker): void
     {
+        // TODO: This needs a way for the Raspi to tell us the locker has been closed.
         $locker
             ->close()
             ->save();
