@@ -16,10 +16,12 @@ class LockerFactory extends Factory
      */
     public function definition(): array
     {
+        $isOpen = fake()->boolean(20);
+
         return [
             'designation' => fake()->randomNumber(3),
-            'is_open' => fake()->boolean(20),
-            'last_opened_at' => fake()->dateTimeThisMonth(),
+            'is_open' => $isOpen,
+            'last_opened_at' => true === $isOpen ? now()->subMinute() : fake()->dateTimeThisMonth('now'),
         ];
     }
 }
