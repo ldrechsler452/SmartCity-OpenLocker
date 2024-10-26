@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Content;
 use App\Models\Locker;
 use App\Models\Station;
 use Inertia\Inertia;
@@ -11,15 +12,16 @@ class LockerController extends Controller
 {
     public function index(Station $station): Response
     {
+
         return Inertia::render('Lockers/Index', [
-            'lockers' => $station->getLockers(),
+            'lockers' => $station->getLockers()->load('content'),
         ]);
     }
 
     public function show(Locker $locker): Response
     {
         return Inertia::render('Lockers/Show', [
-            'locker' => $locker,
+            'locker' => $locker->load('content'),
         ]);
     }
 

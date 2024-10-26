@@ -45,4 +45,9 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function getId(): int
+    {
+        return $this->getAttribute('id');
+    }
 }
