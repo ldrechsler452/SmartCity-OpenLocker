@@ -28,6 +28,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'Admin',
             'email' => 'admin@example.com',
             'password' => '123',
+            'is_admin' => true,
         ]);
 
         for ($i = 0; $i < 3; $i++) {
