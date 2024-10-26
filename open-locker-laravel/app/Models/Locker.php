@@ -3,14 +3,39 @@
 namespace App\Models;
 
 use Carbon\Carbon;
+use Illuminate\Cache\Lock;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Locker extends Model
 {
     /** @use HasFactory<\Database\Factories\LockerFactory> */
     use HasFactory;
 
+    protected $with = [
+        'station'
+    ];
+
+    // Relations
+
+    public function station(): BelongsTo
+    {
+        return $this->belongsTo(Station::class);
+    }
+
+    public function getStation(): Station
+    {
+        return $this->getAttribute('station');
+    }
+
+    public function setStation(Station $station): Locker
+    {
+        $this->setAttribute('station', $station);
+        return $this;
+    }
+
+    // Attributes
     public function getId(): int
     {
         return $this->getAttribute('id');
