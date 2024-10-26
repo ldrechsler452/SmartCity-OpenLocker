@@ -27,7 +27,7 @@ class Locker extends Model
 
     public function setStation(Station $station): Locker
     {
-        $this->setAttribute('station', $station);
+        $this->setAttribute('station_id', $station->getId());
         return $this;
     }
 
