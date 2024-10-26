@@ -37,6 +37,6 @@ Route::get('/lockers/{locker:id}/close', [LockerController::class, 'close'])->na
 Route::get('/stations', [StationController::class, 'index'])->name('stations.index');
 
 // Contents
-Route::get('/content', [ContentController::class, 'index'])->name('content.index');
+Route::get('/contents', [ContentController::class, 'index'])->name('content.index');
 
 require __DIR__.'/auth.php';
