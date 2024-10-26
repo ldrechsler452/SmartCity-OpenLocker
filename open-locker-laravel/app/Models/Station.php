@@ -52,4 +52,37 @@ class Station extends Model
     {
         return $this->getAttribute('updated_at');
     }
+
+    public function getAddress(): string
+    {
+        return $this->getAttribute('address');
+    }
+
+    public function setAddress(string $address): Station
+    {
+        $this->setAttribute('address', $address);
+        return $this;
+    }
+
+    public function getDistance(): float
+    {
+        return $this->getAttribute('distance');
+    }
+
+    public function setDistance(string $distance): Station
+    {
+        $this->setAttribute('distance', $distance);
+        return $this;
+    }
+
+    public function getImage(): string
+    {
+        return $this->getAttribute('image');
+    }
+
+    public function setImage(string $image): Station
+    {
+        $this->setAttribute('image', $image);
+        return $this;
+    }
 }
