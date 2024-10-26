@@ -26,7 +26,7 @@ match doorIndex:
     case "2":
         pwm_gpio = DOOR2_GPIO_PIN
     case _:
-        print(format("ERROR {index}", index = doorIndex))
+        print(format("ERROR", doorIndex))
         sys.exit(EXITCODE_ERROR)
 
 
@@ -47,5 +47,5 @@ time.sleep(SERVO_DURATION)
 # Clean-up.
 pwm.stop()
 GPIO.cleanup()
-print(format("OK {index}", index = doorIndex))
+print(format("OK", doorIndex))
 sys.exit(EXITCODE_OK)

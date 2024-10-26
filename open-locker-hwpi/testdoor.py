@@ -28,7 +28,7 @@ match doorIndex:
     case "2":
         pin_gpio = DOOR2_GPIO_PIN
     case _:
-        print(format("ERROR {index}", index = doorIndex))
+        print(format("ERROR", doorIndex))
         sys.exit(EXITCODE_ERROR)
 
 
@@ -52,8 +52,8 @@ while doorClosedCurrent != doorClosedPrevious:
 # Clean-up.
 GPIO.cleanup()
 if doorClosedCurrent == True:
-    print(format("CLOSED {index}", index = doorIndex))
+    print(format("CLOSED", doorIndex))
     sys.exit(EXITCODE_DOOR_CLOSED)
 else:
-    print(format("OPEN {index}", index = doorIndex))
+    print(format("OPEN", doorIndex))
     sys.exit(EXITCODE_DOOR_OPEN)
