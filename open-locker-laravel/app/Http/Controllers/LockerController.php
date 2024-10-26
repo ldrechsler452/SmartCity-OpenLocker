@@ -16,9 +16,9 @@ class LockerController extends Controller
         ]);
     }
 
-    public function single(Locker $locker): Response
+    public function show(Locker $locker): Response
     {
-        return Inertia::render('Lockers/Single', [
+        return Inertia::render('Lockers/Show', [
             'locker' => $locker,
         ]);
     }

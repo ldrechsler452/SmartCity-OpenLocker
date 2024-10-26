@@ -2,7 +2,7 @@ import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Locker } from '@/types';
 import {Head, Link} from '@inertiajs/react';
 
-export default function SingleLocker({ locker }: { locker: Locker }) {
+export default function ShowLocker({ locker }: { locker: Locker }) {
     return (
         <AuthenticatedLayout
             header={
