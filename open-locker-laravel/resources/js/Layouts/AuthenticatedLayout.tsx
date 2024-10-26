@@ -1,10 +1,10 @@
 import ApplicationLogo from '@/Components/ApplicationLogo';
 import Dropdown from '@/Components/Dropdown';
 import NavLink from '@/Components/NavLink';
-import ResponsiveNavLink from '@/Components/ResponsiveNavLink';
 import { Link, usePage } from '@inertiajs/react';
 import { PropsWithChildren, ReactNode, useState } from 'react';
-
+import { PiLockersLight } from "react-icons/pi";
+import { MdMultipleStop } from "react-icons/md";
 export default function Authenticated({
     header,
     children,
@@ -21,18 +21,21 @@ export default function Authenticated({
                                 <Link href="/">
                                     <ApplicationLogo className="block h-9 w-auto fill-current text-gray-800 dark:text-gray-200" />
                                 </Link>
+                                {header && <div className='ml-4 sm:hidden'>{header}</div>}
                             </div>
 
                             <div className="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                                 <NavLink
                                     href={route('dashboard')}
                                     active={route().current('dashboard')}
+                                    icon={<MdMultipleStop />}
                                 >
-                                    Dashboard
+                                    Ausleihe
                                 </NavLink>
                                 <NavLink
                                     href={route('stations.index')}
                                     active={route().current('stations.index')}
+                                    icon={<PiLockersLight />}
                                 >
                                     Stations
                                 </NavLink>
@@ -88,14 +91,6 @@ export default function Authenticated({
             </nav>
 
             <div className="flex flex-col flex-grow overflow-auto">
-                {header && (
-                    <header className="bg-white shadow dark:bg-gray-800">
-                        <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-                            {header}
-                        </div>
-                    </header>
-                )}
-
                 <main>{children}</main>
             </div>
 
@@ -105,12 +100,14 @@ export default function Authenticated({
                     <NavLink
                         href={route('dashboard')}
                         active={route().current('dashboard')}
+                        icon={<MdMultipleStop />}
                     >
-                        Dashboard
+                        Ausleihe
                     </NavLink>
                     <NavLink
                         href={route('stations.index')}
                         active={route().current('stations.index')}
+                        icon={<PiLockersLight />}
                     >
                         Stations
                     </NavLink>
