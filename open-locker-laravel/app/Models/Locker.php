@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -9,6 +10,11 @@ class Locker extends Model
 {
     /** @use HasFactory<\Database\Factories\LockerFactory> */
     use HasFactory;
+
+    public function getId(): int
+    {
+        return $this->getAttribute('id');
+    }
 
     public function getDesignation(): string
     {
@@ -19,5 +25,25 @@ class Locker extends Model
     {
         $this->setAttribute('designation', $designation);
         return $this;
+    }
+
+    public function getLastOpenedAt(): Carbon
+    {
+        return $this->getAttribute('last_opened_at');
+    }
+
+    public function setLastOpenedAt(Carbon $lastOpenedAt): Locker
+    {
+        $this->setAttribute('last_opened_at', $lastOpenedAt);
+    }
+
+    public function getCreatedAt(): Carbon
+    {
+        return $this->getAttribute('created_at');
+    }
+
+    public function getUpdatedAt(): Carbon
+    {
+        return $this->getAttribute('updated_at');
     }
 }
