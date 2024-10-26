@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\locker;
+use App\Models\Locker;
 use Inertia\Inertia;
 
 class LockerController extends Controller
