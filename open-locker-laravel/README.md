@@ -1,11 +1,11 @@
 # TODO
-- Ausgeliehene Artikel
-- Filter Pakstationen nach Gegenstand
-- Packstation Adresse
+- Ausgeliehene Artikel (Endpoint done)
+- Filter Pakstationen nach Gegenstand (Will be done in the frontend)
+- Packstation Adresse 
 - Staitsches Property Entfernung
 - Bilder zu Artikeln
-- Ausleihen funktion mit Fach aufmachen
-- Artikel retournieren
+- Ausleihen funktion mit Fach aufmachen (Endpoint done, needs testing)
+- Artikel retournieren (Endpoint done)
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
