@@ -13,6 +13,7 @@ setup:
 .PHONY: start
 start: ## start containers
 	$(DOCKER_COMPOSE_CMD) up -d --remove-orphans
+	$(DOCKER_COMPOSE_CMD) npm run dev
 
 .PHONY: stop
 stop: ## stop containers
