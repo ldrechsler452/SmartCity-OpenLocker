@@ -39,4 +39,24 @@ class StationController extends Controller
 //            'searchedContentName' => $searchedContentName,
         ]);
     }
+
+    public function create(): Response
+    {
+        return Inertia::render('Stations/Create');
+    }
+
+    public function store(): Response
+    {
+        $station = (new Station())
+            ->setName(request()->input('name'))
+            ->setAddress(request()->input('address'))
+            ->setDistance(request()->input('distance'))
+            ->save();
+
+        // TODO: Add image
+
+        return Inertia::render('Stations/Store', [
+            'station' => $station,
+        ]);
+    }
 }

@@ -26,7 +26,6 @@ class StationFactory extends Factory
             'address' => fake()->address(),
             'distance' => fake()->randomNumber(),
             'image' => $images[array_rand($images)],
-
         ];
     }
 }

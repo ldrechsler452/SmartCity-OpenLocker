@@ -36,6 +36,8 @@ Route::get('/lockers/{locker:id}/close', [LockerController::class, 'close'])->na
 
 // Stations
 Route::get('/stations', [StationController::class, 'index'])->name('stations.index');
+Route::get('/stations/create', [StationController::class, 'create'])->name('stations.create');
+Route::post('/stations', [StationController::class, 'store'])->name('stations.store');
 
 // Contents
 Route::get('/contents', [ContentController::class, 'index'])->name('content.index');
