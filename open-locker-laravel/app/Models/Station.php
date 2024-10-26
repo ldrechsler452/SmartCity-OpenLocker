@@ -47,7 +47,7 @@ class Station extends Model
         return $this->getAttribute('created_at');
     }
 
-    public function getUpdatedAt(): Carbon
+    public function getUpdatedAt(): ?Carbon
     {
         return $this->getAttribute('updated_at');
     }
