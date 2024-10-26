@@ -11,12 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('lockers', function (Blueprint $table) {
+        Schema::create('stations', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('station_id')->constrained('stations')->cascadeOnDelete();
-            $table->string('designation')->unique();
-            $table->boolean('is_open')->default(false);
-            $table->timestamp('last_opened_at')->nullable();
+            $table->string('name');
             $table->timestamps();
         });
     }
@@ -26,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('lockers');
+        Schema::dropIfExists('stations');
     }
 };

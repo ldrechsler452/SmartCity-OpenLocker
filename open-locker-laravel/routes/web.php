@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\LockerController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\StationController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -25,6 +26,10 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/lockers', [LockerController::class, 'index'])->name('lockers.index');
+// Lockers
+Route::get('stations/{station:id}/lockers', [LockerController::class, 'index'])->name('lockers.index');
+
+// Stations
+Route::get('/stations', [StationController::class, 'index'])->name('stations.index');
 
 require __DIR__.'/auth.php';
