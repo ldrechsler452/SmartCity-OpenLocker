@@ -30,6 +30,6 @@ Route::middleware('auth')->group(function () {
 Route::get('/lockers', [LockerController::class, 'index'])->name('lockers.index');
 
 // Stations
-Route::get('/station/{station:id}/lockers', [StationController::class, 'index'])->name('stations.index');
+Route::get('/stations', [StationController::class, 'index'])->name('stations.index');
 
 require __DIR__.'/auth.php';
