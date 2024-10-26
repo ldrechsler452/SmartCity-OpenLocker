@@ -11,7 +11,7 @@ class LockerController extends Controller
 {
     public function index(Station $station): Response
     {
-        return Inertia::render('Locker/LockerIndex', [
+        return Inertia::render('Lockers/Index', [
             'lockers' => $station->getLockers(),
         ]);
     }
