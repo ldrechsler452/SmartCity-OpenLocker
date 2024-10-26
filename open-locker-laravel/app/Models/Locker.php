@@ -32,6 +32,23 @@ class Locker extends Model
         return $this->getAttribute('last_opened_at');
     }
 
+    public function IsOpen(): bool
+    {
+        return $this->getAttribute('is_open');
+    }
+
+    public function open(): Locker
+    {
+        $this->setAttribute('is_open', true);
+        return $this;
+    }
+
+    public function close(): Locker
+    {
+        $this->setAttribute('is_open', false);
+        return $this;
+    }
+
     public function setLastOpenedAt(Carbon $lastOpenedAt): Locker
     {
         $this->setAttribute('last_opened_at', $lastOpenedAt);
