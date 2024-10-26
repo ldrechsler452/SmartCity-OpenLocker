@@ -28,6 +28,7 @@ Route::middleware('auth')->group(function () {
 
 // Lockers
 Route::get('stations/{station:id}/lockers', [LockerController::class, 'index'])->name('lockers.index');
+Route::get('lockers/{locker:id}', [LockerController::class, 'single'])->name('lockers.single');
 Route::patch('lockers/{locker:id}/open', [LockerController::class, 'open'])->name('lockers.open');
 Route::patch('lockers/locker:id}/close', [LockerController::class, 'close'])->name('lockers.close');
 

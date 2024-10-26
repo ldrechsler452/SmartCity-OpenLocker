@@ -16,6 +16,13 @@ class LockerController extends Controller
         ]);
     }
 
+    public function single(Locker $locker): Response
+    {
+        return Inertia::render('Lockers/Single', [
+            'locker' => $locker,
+        ]);
+    }
+
     public function open(Locker $locker): void
     {
         // TODO: Tell API to open the door
