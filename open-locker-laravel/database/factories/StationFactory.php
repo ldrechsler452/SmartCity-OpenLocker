@@ -17,7 +17,7 @@ class StationFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => 'Packstation' . fake()->randomDigit(),
+            'name' => 'Station ' . fake()->randomDigit(),
         ];
     }
 }

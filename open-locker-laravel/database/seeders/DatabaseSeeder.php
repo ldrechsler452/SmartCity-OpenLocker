@@ -23,9 +23,10 @@ class DatabaseSeeder extends Seeder
             'password' => '123',
         ]);
 
-        $station = Station::factory()->create();
-        Locker::factory(5)->create([
-            'station_id' => $station->getId(),
-        ]);
-    }
+        for ($i = 0; $i < 3; $i++) {
+            $station = Station::factory()->create();
+            Locker::factory(5)->create([
+                'station_id' => $station->getId(),
+            ]);
+        }
 }
