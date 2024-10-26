@@ -63,6 +63,23 @@ class User extends Authenticatable
         return $this;
     }
 
+    public function isAdmin(): bool
+    {
+        return $this->getAttribute('is_admin');
+    }
+
+    public function grantAdmin(): User
+    {
+        $this->setAttribute('is_admin', true);
+        return $this;
+    }
+
+    public function revokeAdmin(): User
+    {
+        $this->setAttribute('is_admin', false);
+        return $this;
+    }
+
     public function getCreatedAt(): Carbon
     {
         return $this->getAttribute('created_at');

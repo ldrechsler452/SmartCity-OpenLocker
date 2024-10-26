@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ContentController;
 use App\Http\Controllers\LockerController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\StationController;
@@ -24,6 +25,7 @@ Route::middleware('auth')->group(function () {
 // Users
 Route::get('/users', [UserController::class, 'index'])->name('users.index');
 Route::get('/users/{user:id}', [UserController::class, 'show'])->name('users.show');
+Route::get('/users/{user:id}/content', [UserController::class, 'content'])->name('users.content');
 
 // Lockers
 Route::get('/stations/{station:id}/lockers', [LockerController::class, 'index'])->name('lockers.index');
@@ -33,5 +35,8 @@ Route::get('/lockers/{locker:id}/close', [LockerController::class, 'close'])->na
 
 // Stations
 Route::get('/stations', [StationController::class, 'index'])->name('stations.index');
+
+// Contents
+Route::get('/content', [ContentController::class, 'index'])->name('content.index');
 
 require __DIR__.'/auth.php';
