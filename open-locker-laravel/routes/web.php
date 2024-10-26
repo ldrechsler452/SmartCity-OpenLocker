@@ -28,8 +28,8 @@ Route::middleware('auth')->group(function () {
 
 // Lockers
 Route::get('stations/{station:id}/lockers', [LockerController::class, 'index'])->name('lockers.index');
-Route::post('lockers/{locker:id}/open', [LockerController::class, 'open'])->name('lockers.open');
-Route::post('lockers/locker:id}/close', [LockerController::class, 'close'])->name('lockers.close');
+Route::patch('lockers/{locker:id}/open', [LockerController::class, 'open'])->name('lockers.open');
+Route::patch('lockers/locker:id}/close', [LockerController::class, 'close'])->name('lockers.close');
 
 // Stations
 Route::get('/stations', [StationController::class, 'index'])->name('stations.index');
