@@ -31,6 +31,22 @@ class Content extends Model
         return $this;
     }
 
+    public function image(): BelongsTo
+    {
+        return $this->belongsTo(Image::class);
+    }
+
+    public function getImage(): Image
+    {
+        return $this->getAttribute('image');
+    }
+
+    public function setImage(Image $image): Content
+    {
+        $this->setAttribute('image_id', $image->getId());
+        return $this;
+    }
+
     public function locker(): HasOne
     {
         return $this->hasOne(Locker::class);

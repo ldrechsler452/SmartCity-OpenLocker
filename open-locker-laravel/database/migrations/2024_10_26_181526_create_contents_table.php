@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('contents', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->foreignId('user_id')->nullable()->constrained('users');
-            $table->timestamp('taken_at')->nullable();
+            $table->foreignId('user_id')->nullable()->default(null)->constrained('users');
+            $table->timestamp('taken_at')->nullable()->default(null);
             $table->timestamps();
         });
     }

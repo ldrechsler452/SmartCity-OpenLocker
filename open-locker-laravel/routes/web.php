@@ -41,6 +41,8 @@ Route::post('/stations', [StationController::class, 'store'])->name('stations.st
 
 // Contents
 Route::get('/contents', [ContentController::class, 'index'])->name('content.index');
+Route::get('/contents/create', [ContentController::class, 'create'])->name('content.create');
+Route::post('/contents', [ContentController::class, 'store'])->name('content.store');
 Route::get('/contents/{content:id}/take', [ContentController::class, 'take'])->name('content.take');
 Route::get('/contents/{content:id}/return', [ContentController::class, 'return'])->name('content.return');
 
