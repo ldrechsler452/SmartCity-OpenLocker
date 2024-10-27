@@ -28,7 +28,7 @@ class ImageService
             name: $image->getUuid() . '.' . $extension
         );
 
-        $image->setFilePath(storage_path($path));
+        $image->setFilePath($path);
         $image->save();
 
         return $image;
