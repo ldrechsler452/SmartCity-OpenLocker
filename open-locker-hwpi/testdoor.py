@@ -12,9 +12,9 @@ import RPi.GPIO as GPIO
 import time
 
 # Constants
-DOOR1_GPIO_PIN = 17
+DOOR1_GPIO_PIN = 4
 DOOR2_GPIO_PIN = 27
-GPIO_HIGH_LOW_ACTIVE = GPIO.HIGH
+GPIO_HIGH_LOW_ACTIVE = GPIO.LOW
 EXITCODE_DOOR_OPEN = 0
 EXITCODE_DOOR_CLOSED = 1
 EXITCODE_ERROR = 2
@@ -33,8 +33,8 @@ match doorIndex:
 
 
 # Set-up.
-GPIO.setmode(GPIO.BOARD) #Use Board numerotation mode
-GPIO.setwarnings(False) #Disable warnings
+GPIO.setmode(GPIO.BCM)
+GPIO.setwarnings(False)
 GPIO.setup(pin_gpio, GPIO.IN)
 
 # Double-check sensor (debouncing). Only if the same state is retained
