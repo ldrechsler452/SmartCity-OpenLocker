@@ -24,7 +24,7 @@ export default function UpdateProfileInformation({
     const submit: FormEventHandler = (e) => {
         e.preventDefault();
 
-        post(route('station.store'));
+        post(route('stations.store'));
     };
 
     return (
