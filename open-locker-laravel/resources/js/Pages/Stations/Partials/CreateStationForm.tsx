@@ -80,7 +80,7 @@ export default function UpdateProfileInformation({
                         type="text"
                         className="mt-1 block w-full"
                         value={data.distance}
-                        onChange={(e) => setData('address', e.target.value)}
+                        onChange={(e) => setData('distance', e.target.value)}
                         required
                     />
 
