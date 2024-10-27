@@ -15,16 +15,16 @@ export default function ShowLocker({ locker }: { locker: Locker }) {
         >
             <Head title="Content" />
 
-            <div className="py-12">
+            <div className="py-0 sm:py-12">
                 <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
-                    <div className="overflow-hidden bg-white shadow-sm sm:rounded-lg dark:bg-gray-800">
+                    <div className="overflow-hidden sm:rounded-lg dark:bg-gray-800">
                         <div className="p-6 text-gray-900 dark:text-gray-100">
                             <div className='flex flex-col gap-4'>
                                 <LockerItem lockerItem={locker.content} />
                                 <div className="flex justify-end">
                                     <Link href={`/lockers/${locker.id}/open`}>
                                         <PrimaryButton disabled={locker.is_open}>
-                                            Open
+                                            Ausleihen
                                         </PrimaryButton>
                                     </Link>
                                 </div>
