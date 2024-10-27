@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Content;
 use App\Models\Locker;
 use App\Models\Station;
+use App\Services\ImageService;
 use App\Services\ScriptService;
+use Illuminate\Http\RedirectResponse;
 use Inertia\Inertia;
 use Inertia\Response;
 
@@ -15,6 +17,7 @@ class LockerController extends Controller
     {
         return Inertia::render('Lockers/Index', [
             'lockers' => $station->getLockers()->load('content'),
+            'station' => $station
         ]);
     }
 
@@ -45,5 +48,40 @@ class LockerController extends Controller
         $locker
             ->close()
             ->save();
+    }
+
+    public function create(Station $station): Response
+    {
+        return Inertia::render('Lockers/Create', ['station' => $station]);
+    }
+
+    public function store(): RedirectResponse
+    {
+        $image = null;
+        $imageFile = null;
+        if (null !== request()->file('image')) {
+            $imageFile = request()->file('image');
+            $image = ImageService::store($imageFile);
+        }
+
+        $content = (new Content())
+            ->setName(request()->input('itemName'));
+        if (null !== $imageFile)
+        {
+            $content->setImage($image);
+        }
+        $content->save();
+
+        $station_id = request()->input('station_id');
+        $locker = (new Locker())
+            ->setDesignation(request()->input('lockerDesignation'))
+            ->setContent($content)
+            ->setStation(Station::find($station_id));
+
+
+
+        $locker->save();
+
+        return redirect()->route('lockers.index', $station_id);
     }
 }

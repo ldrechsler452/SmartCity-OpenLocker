@@ -21,7 +21,7 @@ export default function Lockers({ lockers, station }: { lockers: Locker[], stati
                             <div className='flex flex-col gap-4'>
                                 <div className='flex justify-end'>
                                     <Link
-                                        href={route('stations.create')}
+                                        href={route('lockers.create', station.id)}
                                     >
                                         <PrimaryButton className="flex gap-4">
                                             Neu

@@ -19,13 +19,13 @@ export default function CreateLocker({
             lockerDesignation: '',
             itemName: '',
             image: null as File | null,
-            station_id: station?.id ?? '1', 
+            station_id: station?.id ?? '1',
         });
 
     const submit: FormEventHandler = (e) => {
         e.preventDefault();
 
-        post(route('locker.store'));
+        post(route('lockers.store'));
     };
 
     return (

@@ -17,6 +17,7 @@ return new class extends Migration
             $table->foreignId('user_id')->nullable()->default(null)->constrained('users');
             $table->timestamp('taken_at')->nullable()->default(null);
             $table->timestamps();
+            $table->foreignId('image_id')->nullable()->constrained('images')->cascadeOnDelete();
         });
     }
 

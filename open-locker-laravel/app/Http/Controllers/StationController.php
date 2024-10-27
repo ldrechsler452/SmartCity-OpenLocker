@@ -61,7 +61,6 @@ class StationController extends Controller
 
     public function image(Station $station): StreamedResponse
     {
-    return Storage::download($station->getImage()?->getFilePath());
-
+        return Storage::download($station->getImage()?->getFilePath());
     }
 }

@@ -33,6 +33,9 @@ Route::get('/stations/{station:id}/lockers', [LockerController::class, 'index'])
 Route::get('/lockers/{locker:id}', [LockerController::class, 'show'])->name('lockers.show');
 Route::get('/lockers/{locker:id}/open', [LockerController::class, 'open'])->name('lockers.open');
 Route::get('/lockers/{locker:id}/close', [LockerController::class, 'close'])->name('lockers.close');
+Route::get('/stations/{station:id}/lockers/create', [LockerController::class, 'create'])->name('lockers.create');
+Route::post('/lockers', [LockerController::class, 'store'])->name('lockers.store');
+
 
 // Stations
 Route::get('/stations', [StationController::class, 'index'])->name('stations.index');
