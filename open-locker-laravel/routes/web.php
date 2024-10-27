@@ -39,6 +39,7 @@ Route::get('/stations', [StationController::class, 'index'])->name('stations.ind
 Route::get('/stations/create', [StationController::class, 'create'])->name('stations.create');
 Route::post('/stations', [StationController::class, 'store'])->name('stations.store');
 Route::delete('/stations/{station:ud}', [StationController::class, 'delete'])->name('stations.delete');
+Route::get('/stations/{station:id}/image', [StationController::class, 'image'])->name('stations.image');
 
 // Contents
 Route::get('/contents', [ContentController::class, 'index'])->name('content.index');

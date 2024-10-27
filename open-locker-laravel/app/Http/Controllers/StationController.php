@@ -8,8 +8,10 @@ use App\Models\Locker;
 use App\Models\Station;
 use App\Services\ImageService;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Storage;
 use Inertia\Inertia;
 use Inertia\Response;
+use Symfony\Component\HttpFoundation\StreamedResponse;
 
 class StationController extends Controller
 {
@@ -55,5 +57,11 @@ class StationController extends Controller
         $station->delete();
 
         return redirect()->route('stations.index');
+    }
+
+    public function image(Station $station): StreamedResponse
+    {
+    return Storage::download($station->getImage()?->getFilePath());
+
     }
 }

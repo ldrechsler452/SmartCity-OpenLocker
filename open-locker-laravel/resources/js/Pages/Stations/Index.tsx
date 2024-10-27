@@ -76,9 +76,12 @@ export default function Stations({ stations }: { stations: Station[] }) {
                                                     <div>{station.distance} km</div>
                                                 </div>
                                             </div>
-                                            <div className="w-2/5">
-                                                <img src="public/images/download" alt={`${station.name} image`} className="object-cover h-full w-full" />
-                                            </div>
+
+                                            {station.image&&<div className="w-2/5">
+                                                <img src={route('stations.image', station.id)}
+                                                     alt={`${station.name} image`}
+                                                     className="object-cover h-full w-full"/>
+                                            </div>}
                                         </div>)
                                     )}
                                 </div>
