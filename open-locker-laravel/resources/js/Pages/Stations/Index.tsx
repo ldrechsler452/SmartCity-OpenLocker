@@ -1,10 +1,15 @@
+import NavLink from '@/Components/NavLink';
+import PrimaryButton from '@/Components/PrimaryButton';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Station } from '@/types';
-import { Head, Link } from '@inertiajs/react';
+import { Head, Link, usePage } from '@inertiajs/react';
 import { useState } from 'react';
+import { PiLockersLight } from 'react-icons/pi';
 import Select, { ActionMeta, SingleValue } from 'react-select';
 
 export default function Stations({ stations }: { stations: Station[] }) {
+    const user = usePage().props.auth.user;
+
     const [filteredStations, setFilteredStations] = useState(stations);
     const [selectedOption, setSelectedOption] = useState<SingleValue<{ value: string; label: string }>>(null);
 
@@ -68,6 +73,16 @@ export default function Stations({ stations }: { stations: Station[] }) {
                                         </div>
                                     </div>)
                                 )}
+                                <div className="pb-4 flex justify-center">
+                                    <Link
+                                        href={route('stations.create')}
+                                    >
+                                        <PrimaryButton className="flex gap-4">
+                                            <PiLockersLight />
+                                            Station erstellen
+                                        </PrimaryButton>
+                                    </Link>
+                                </div>
                             </div>
                         </div>
                     </div>
