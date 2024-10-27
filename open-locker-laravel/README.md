@@ -1,11 +1,14 @@
 # TODO
-- Ausgeliehene Artikel (Endpoint done)
-- Filter Pakstationen nach Gegenstand (Will be done in the frontend)
-- Packstation Adresse 
-- Staitsches Property Entfernung
-- Bilder zu Artikeln
+- LOCKER name auf der Lockers route
 - Ausleihen funktion mit Fach aufmachen (Endpoint done, needs testing)
 - Artikel retournieren (Endpoint done)
+- Bilder zu Artikeln
+- Status der Tuer abfragen
+- Bearbeiten von Artikeln
+- Bearbeiten von Stationen
+- admin / user version
+- LOGO
+- QR Code
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 

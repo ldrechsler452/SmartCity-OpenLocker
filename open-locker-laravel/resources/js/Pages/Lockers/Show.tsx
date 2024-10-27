@@ -2,9 +2,10 @@ import LockerItem from '@/Components/LockerItem';
 import PrimaryButton from '@/Components/PrimaryButton';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Locker } from '@/types';
-import { Head, Link } from '@inertiajs/react';
+import { Head, Link, usePage } from '@inertiajs/react';
 
 export default function ShowLocker({ locker }: { locker: Locker }) {
+    const user = usePage().props.auth.user;
     return (
         <AuthenticatedLayout
             header={
@@ -22,11 +23,20 @@ export default function ShowLocker({ locker }: { locker: Locker }) {
                             <div className='flex flex-col gap-4'>
                                 <LockerItem lockerItem={locker.content} />
                                 <div className="flex justify-end">
-                                    <Link href={`/lockers/${locker.id}/open`}>
-                                        <PrimaryButton disabled={locker.is_open}>
-                                            Ausleihen
-                                        </PrimaryButton>
-                                    </Link>
+                                    {!locker.content.user_id &&
+                                        <Link href={`/contents/${locker.content.id}/take`}>
+                                            <PrimaryButton disabled={locker.is_open}>
+                                                Ausleihen
+                                            </PrimaryButton>
+                                        </Link>
+                                    }
+                                    {locker.content.user_id == user.id &&
+                                        <Link href={`/contents/${locker.content.id}/return`}>
+                                            <PrimaryButton>
+                                                Zurückgeben
+                                            </PrimaryButton>
+                                        </Link>
+                                    }
                                 </div>
                             </div>
                         </div>

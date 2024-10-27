@@ -2,88 +2,75 @@ import InputError from '@/Components/InputError';
 import InputLabel from '@/Components/InputLabel';
 import PrimaryButton from '@/Components/PrimaryButton';
 import TextInput from '@/Components/TextInput';
+import { Station } from '@/types';
 import { Transition } from '@headlessui/react';
 import { useForm } from '@inertiajs/react';
 import { FormEventHandler } from 'react';
 
-export default function UpdateProfileInformation({
+export default function CreateLocker({
     className = '',
+    station,
 }: {
-    status?: string;
+    station: Station;
     className?: string;
 }) {
     const { data, setData, post, errors, processing, recentlySuccessful } =
         useForm({
-            name: '',
-            address: '',
-            distance: '',
+            lockerDesignation: '',
+            itemName: '',
             image: null as File | null,
+            station_id: station?.id ?? '1', 
         });
 
     const submit: FormEventHandler = (e) => {
         e.preventDefault();
 
-        post(route('stations.store'));
+        post(route('locker.store'));
     };
 
     return (
         <section className={className}>
             <header>
                 <h2 className="text-lg font-medium text-gray-900 dark:text-gray-100">
-                    Station erstellen
+                    Gegenstand erstellen
                 </h2>
 
                 <p className="mt-1 text-sm text-gray-600 dark:text-gray-400">
-                    Erstelle eine neue Station.
+                    Erstelle eine neuen Gegenstand.
                 </p>
             </header>
 
             <form onSubmit={submit} className="mt-6 space-y-6">
                 <div>
-                    <InputLabel htmlFor="name" value="Name" />
+                    <InputLabel htmlFor="name" value="Name des Schliessfachs" />
 
                     <TextInput
-                        id="name"
+                        id="lockerDesignation"
                         className="mt-1 block w-full"
-                        value={data.name}
-                        onChange={(e) => setData('name', e.target.value)}
+                        value={data.lockerDesignation}
+                        onChange={(e) => setData('lockerDesignation', e.target.value)}
                         required
                         isFocused
                         autoComplete="name"
                     />
 
-                    <InputError className="mt-2" message={errors.name} />
+                    <InputError className="mt-2" message={errors.lockerDesignation} />
                 </div>
 
                 <div>
-                    <InputLabel htmlFor="address" value="Address" />
+                    <InputLabel htmlFor="itemName" value="Name des Gegenstandes" />
 
                     <TextInput
-                        id="address"
+                        id="itemName"
                         type="text"
                         className="mt-1 block w-full"
-                        value={data.address}
-                        onChange={(e) => setData('address', e.target.value)}
+                        value={data.itemName}
+                        onChange={(e) => setData('itemName', e.target.value)}
                         required
-                        autoComplete="address"
+                        autoComplete="itemName"
                     />
 
-                    <InputError className="mt-2" message={errors.address} />
-                </div>
-
-                <div>
-                    <InputLabel htmlFor="distance" value="Distanz" />
-
-                    <TextInput
-                        id="distance"
-                        type="text"
-                        className="mt-1 block w-full"
-                        value={data.distance}
-                        onChange={(e) => setData('distance', e.target.value)}
-                        required
-                    />
-
-                    <InputError className="mt-2" message={errors.address} />
+                    <InputError className="mt-2" message={errors.itemName} />
                 </div>
 
                 <div>

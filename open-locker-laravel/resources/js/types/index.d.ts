@@ -21,7 +21,14 @@ export type Station = {
     lockers: Locker[];
     created_at: Date;
     updated_at: Date;
-    image: string;
+    image: {
+        id: number;
+        file_path: string;
+        uuid: string;
+        original_name: string;
+        created_at: string;
+        updated_at: string;
+    };
     address: string;
     distance: number;
 }
@@ -30,6 +37,14 @@ export type TLockerItem = {
     id: number;
     name: string;
     user_id: number | null;
+    image: {
+        id: number;
+        file_path: string;
+        uuid: string;
+        original_name: string;
+        created_at: string;
+        updated_at: string;
+    };
     created_at: Date;
     updated_at: Date;
 }
