@@ -55,35 +55,35 @@ export default function Stations({ stations }: { stations: Station[] }) {
                                         defaultValue={selectedOption}
                                         onChange={handleSelectionChange}
                                     />
-                                </div>
-                                {filteredStations.map((station) => (
-                                    <div key={station.id} className="w-100 p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 flex gap-2">
-                                        <div className="flex-grow">
-                                            <Link href={`/stations/${station.id}/lockers`}>
-                                                <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{station.name}</h5>
-                                            </Link>
-                                            <div className="grid grid-cols-[auto_1fr] gap-4">
-                                                <div>Adresse:</div>
-                                                <div>{station.address}</div>
-                                                <div>Entfernung:</div>
-                                                <div>{station.distance} km</div>
-                                            </div>
-                                        </div>
-                                        <div className="w-2/5">
-                                            <img src="public/images/download" alt={`${station.name} image`} className="object-cover h-full w-full" />
-                                        </div>
-                                    </div>)
-                                )}
-                                <div className="pb-4 flex justify-center">
                                     <Link
                                         href={route('stations.create')}
                                     >
                                         <PrimaryButton className="flex gap-4">
-                                            <PiLockersLight />
-                                            Station erstellen
+                                            Neu
                                         </PrimaryButton>
                                     </Link>
                                 </div>
+                                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                                    {filteredStations.map((station) => (
+                                        <div key={station.id} className="w-100 p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 flex gap-2">
+                                            <div className="flex-grow">
+                                                <Link href={`/stations/${station.id}/lockers`}>
+                                                    <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{station.name}</h5>
+                                                </Link>
+                                                <div className="grid grid-cols-[auto_1fr] gap-4">
+                                                    <div>Adresse:</div>
+                                                    <div>{station.address}</div>
+                                                    <div>Entfernung:</div>
+                                                    <div>{station.distance} km</div>
+                                                </div>
+                                            </div>
+                                            <div className="w-2/5">
+                                                <img src="public/images/download" alt={`${station.name} image`} className="object-cover h-full w-full" />
+                                            </div>
+                                        </div>)
+                                    )}
+                                </div>
+
                             </div>
                         </div>
                     </div>

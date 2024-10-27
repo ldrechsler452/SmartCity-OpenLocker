@@ -30,14 +30,14 @@ export default function Authenticated({
                                     active={route().current('dashboard')}
                                     icon={<MdMultipleStop />}
                                 >
-                                    Ausleihe
+                                    Meins
                                 </NavLink>
                                 <NavLink
                                     href={route('stations.index')}
                                     active={route().current('stations.index')}
                                     icon={<PiLockersLight />}
                                 >
-                                    Stations
+                                    Schränke
                                 </NavLink>
                             </div>
                         </div>
