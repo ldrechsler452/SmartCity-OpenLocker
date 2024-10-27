@@ -26,7 +26,7 @@ class LockerController extends Controller
     public function show(Locker $locker): Response
     {
         return Inertia::render('Lockers/Show', [
-            'locker' => $locker->load('content'),
+            'locker' => $locker->load('content', 'content.image'),
         ]);
     }
 

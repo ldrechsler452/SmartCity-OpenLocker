@@ -52,5 +52,6 @@ Route::post('/contents', [ContentController::class, 'store'])->name('content.sto
 Route::get('/contents/{content:id}/take', [ContentController::class, 'take'])->name('content.take');
 Route::get('/contents/{content:id}/return', [ContentController::class, 'return'])->name('content.return');
 Route::delete('/contents/{content:id}', [ContentController::class, 'delete'])->name('content.delete');
+Route::get('/content/{content:id}/image', [ContentController::class, 'image'])->name('content.image');
 
 require __DIR__.'/auth.php';

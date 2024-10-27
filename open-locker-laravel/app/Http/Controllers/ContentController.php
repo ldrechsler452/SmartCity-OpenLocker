@@ -9,8 +9,10 @@ use App\Models\User;
 use App\Services\ImageService;
 use App\Services\ScriptService;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Storage;
 use Inertia\Inertia;
 use Inertia\Response;
+use Symfony\Component\HttpFoundation\StreamedResponse;
 
 class ContentController extends Controller
 {
@@ -86,5 +88,10 @@ class ContentController extends Controller
         return Inertia::render('Contents/Returned', [
             'content' => $content,
         ]);
+    }
+
+    public function image(Content $content): StreamedResponse
+    {
+        return Storage::download($content->getImage()?->getFilePath());
     }
 }
