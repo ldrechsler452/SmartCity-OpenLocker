@@ -19,7 +19,7 @@ export default function Authenticated({
                         <div className="flex">
                             <div className="flex shrink-0 items-center">
                                 <Link href="/">
-                                    <ApplicationLogo className="block h-9 w-auto fill-current text-gray-800 dark:text-gray-200" />
+                                    <ApplicationLogo className="block h-9 w-auto fill-current text-gray-800 dark:text-gray-200 bg-white rounded-tl-lg rounded-br-lg" />
                                 </Link>
                                 {header && <div className='ml-4 sm:hidden'>{header}</div>}
                             </div>
@@ -102,14 +102,14 @@ export default function Authenticated({
                         active={route().current('dashboard')}
                         icon={<MdMultipleStop />}
                     >
-                        Ausleihe
+                        Meins
                     </NavLink>
                     <NavLink
                         href={route('stations.index')}
                         active={route().current('stations.index')}
                         icon={<PiLockersLight />}
                     >
-                        Stations
+                        Schränke
                     </NavLink>
                 </div>
             </footer>

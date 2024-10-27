@@ -69,7 +69,7 @@ class ContentController extends Controller
 
         ScriptService::openLocker($content->getLocker());
 
-        return Inertia::render('Content/Taken', [
+        return Inertia::render('Contents/Taken', [
             'content' => $content,
         ]);
     }
@@ -83,7 +83,7 @@ class ContentController extends Controller
 
         ScriptService::openLocker($content->getLocker());
 
-        return Inertia::render('Content/Returned', [
+        return Inertia::render('Contents/Returned', [
             'content' => $content,
         ]);
     }

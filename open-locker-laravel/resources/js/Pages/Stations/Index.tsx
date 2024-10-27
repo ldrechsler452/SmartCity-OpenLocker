@@ -31,13 +31,14 @@ export default function Stations({ stations }: { stations: Station[] }) {
         <AuthenticatedLayout
             header={
                 <h2 className="text-xl font-semibold leading-tight text-gray-800 dark:text-gray-200">
-                    Stations
+                    Schränke
                 </h2>
             }
         >
             <Head title="Stations" />
 
             <div className="py-0 sm:py-12">
+                {/* <pre>{JSON.stringify(stations, null, 2)}</pre> */}
                 <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
                     <div className="overflow-hidden sm:rounded-lg dark:bg-gray-800">
                         <div className="p-6 text-gray-900 dark:text-gray-100">
@@ -69,7 +70,7 @@ export default function Stations({ stations }: { stations: Station[] }) {
                                             </div>
                                         </div>
                                         <div className="w-2/5">
-                                            <img src={station.image} alt={`${station.name} image`} className="object-cover h-full w-full" />
+                                            <img src="public/images/download" alt={`${station.name} image`} className="object-cover h-full w-full" />
                                         </div>
                                     </div>)
                                 )}
