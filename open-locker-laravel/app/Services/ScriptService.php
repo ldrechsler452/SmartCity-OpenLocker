@@ -17,6 +17,6 @@ class ScriptService
         $result_code = null;
         $result = [];
         // TODO: For presentation purposes, the locker id is static.
-        exec("python3 /var/scripts/opendoor.py " . escapeshellarg(1), $result, $result_code );
+        exec("python3 /var/scripts/opendoor.py " . escapeshellarg('1'), $result, $result_code );
     }
 }
