@@ -35,6 +35,7 @@ Route::get('/lockers/{locker:id}/open', [LockerController::class, 'open'])->name
 Route::get('/lockers/{locker:id}/close', [LockerController::class, 'close'])->name('lockers.close');
 Route::get('/stations/{station:id}/lockers/create', [LockerController::class, 'create'])->name('lockers.create');
 Route::post('/lockers', [LockerController::class, 'store'])->name('lockers.store');
+Route::get('/lockers/{locker:id}/image', [LockerController::class, 'image'])->name('lockers.image');
 
 
 // Stations

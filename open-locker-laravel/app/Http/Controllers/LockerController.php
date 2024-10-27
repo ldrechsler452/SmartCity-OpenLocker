@@ -8,15 +8,17 @@ use App\Models\Station;
 use App\Services\ImageService;
 use App\Services\ScriptService;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Storage;
 use Inertia\Inertia;
 use Inertia\Response;
+use Symfony\Component\HttpFoundation\StreamedResponse;
 
 class LockerController extends Controller
 {
     public function index(Station $station): Response
     {
         return Inertia::render('Lockers/Index', [
-            'lockers' => $station->getLockers()->load('content'),
+            'lockers' => $station->getLockers()->load('content', 'content.image'),
             'station' => $station
         ]);
     }
@@ -83,5 +85,10 @@ class LockerController extends Controller
         $locker->save();
 
         return redirect()->route('lockers.index', $station_id);
+    }
+
+    public function image(Locker $locker): StreamedResponse
+    {
+        return Storage::download($locker->getContent()?->getImage()?->getFilePath());
     }
 }

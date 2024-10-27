@@ -35,6 +35,11 @@ export default function Lockers({ lockers, station }: { lockers: Locker[], stati
                                                 <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{locker.designation}</h5>
                                                 <p>{locker.content.name}</p>
                                             </Link>
+                                            {locker.content.image&&<div className="w-2/5">
+                                                <img src={route('lockers.image', locker.id)}
+                                                     alt={`${locker.designation} image`}
+                                                     className="object-cover h-full w-full"/>
+                                            </div>}
                                             {locker.content.user_id &&
                                                 <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
                                                     Ausgeliehen
