@@ -39,6 +39,13 @@ export default function Authenticated({
                                 >
                                     Stations
                                 </NavLink>
+                                <NavLink
+                                    href={route('stations.create')}
+                                    active={route().current('stations.create')}
+                                    icon={<PiLockersLight />}
+                                >
+                                    Station erstellen
+                                </NavLink>
                             </div>
                         </div>
 
