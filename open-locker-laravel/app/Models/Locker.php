@@ -42,9 +42,9 @@ class Locker extends Model
         return $this->getAttribute('content');
     }
 
-    public function setContent(Content $content): Locker
+    public function setContent(?Content $content): Locker
     {
-        return $this->setAttribute('content_id', $content->getId());
+        return $this->setAttribute('content_id', $content?->getId());
     }
 
     // Attributes

@@ -27,7 +27,8 @@ class Content extends Model
 
     public function setUser(?User $user): Content
     {
-        $this->setAttribute('user_id', $user->getId());
+
+        $this->setAttribute('user_id', $user?->getId());
         return $this;
     }
 
