@@ -22,7 +22,7 @@ class ImageService
             name: $image->getUuid() . '.' . $extension
         );
 
-        $image->setFilePath($path);
+        $image->setFilePath(storage_path($path));
         $image->save();
 
         return $image;

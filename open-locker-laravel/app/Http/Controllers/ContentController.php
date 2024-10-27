@@ -33,7 +33,7 @@ class ContentController extends Controller
     {
         $image = null;
         $imageFile = null;
-        if (true === request()->filled('image')) {
+        if (null !== request()->file('image')) {
             $imageFile = request()->file('image');
             $image = ImageService::store($imageFile);
         }
