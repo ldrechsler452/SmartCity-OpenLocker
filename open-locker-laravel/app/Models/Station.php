@@ -14,6 +14,10 @@ class Station extends Model
     /** @use HasFactory<\Database\Factories\StationFactory> */
     use HasFactory;
 
+    protected $with = [
+        'image'
+    ];
+
     // Relations
 
     public function lockers(): HasMany
