@@ -8,6 +8,7 @@ use App\Models\Station;
 use App\Models\User;
 use App\Services\ImageService;
 use App\Services\ScriptService;
+use Illuminate\Http\RedirectResponse;
 use Inertia\Inertia;
 use Inertia\Response;
 
@@ -47,6 +48,14 @@ class ContentController extends Controller
         }
 
         return Inertia::render('Content/Store');
+    }
+
+    public function delete(Content $content): RedirectResponse
+    {
+        ImageService::delete($content->getImage());
+        $content->delete();
+
+        return redirect()->route('contents.index');
     }
 
     public function take(Content $content): Response

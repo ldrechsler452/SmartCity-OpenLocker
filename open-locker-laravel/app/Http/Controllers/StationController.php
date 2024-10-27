@@ -48,4 +48,12 @@ class StationController extends Controller
 
         return redirect()->route('stations.index');
     }
+
+    public function delete(Station $station): RedirectResponse
+    {
+        ImageService::delete($station->getImage());
+        $station->delete();
+
+        return redirect()->route('stations.index');
+    }
 }

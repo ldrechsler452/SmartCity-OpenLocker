@@ -9,6 +9,12 @@ use Ramsey\Uuid\Uuid;
 
 class ImageService
 {
+    /**
+     * Saves the uploaded image file to disk.
+     *
+     * @param UploadedFile $file
+     * @return Image
+     */
     public static function store(UploadedFile $file): Image
     {
         $image = new Image();
@@ -26,5 +32,17 @@ class ImageService
         $image->save();
 
         return $image;
+    }
+
+    /**
+     * Removes the given image from disk and deletes the entity.
+     *
+     * @param Image $image
+     * @return void
+     */
+    public static function delete(Image $image): void
+    {
+        Storage::delete($image->getFilePath());
+        $image->delete();
     }
 }

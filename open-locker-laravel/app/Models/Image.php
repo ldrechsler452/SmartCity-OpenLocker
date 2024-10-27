@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Services\ImageService;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -18,12 +19,6 @@ class Image extends Model
 
         $uuid = Uuid::uuid4()->toString();
         $this->setAttribute('uuid', $uuid);
-    }
-
-    public function remove(): void
-    {
-        Storage::delete($this->getAttribute('file_path'));
-        $this->delete();
     }
 
     public function getId(): int

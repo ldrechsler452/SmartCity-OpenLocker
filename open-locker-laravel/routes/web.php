@@ -38,6 +38,7 @@ Route::get('/lockers/{locker:id}/close', [LockerController::class, 'close'])->na
 Route::get('/stations', [StationController::class, 'index'])->name('stations.index');
 Route::get('/stations/create', [StationController::class, 'create'])->name('stations.create');
 Route::post('/stations', [StationController::class, 'store'])->name('stations.store');
+Route::delete('/stations/{station:ud}', [StationController::class, 'delete'])->name('stations.delete');
 
 // Contents
 Route::get('/contents', [ContentController::class, 'index'])->name('content.index');
@@ -45,5 +46,6 @@ Route::get('/contents/create', [ContentController::class, 'create'])->name('cont
 Route::post('/contents', [ContentController::class, 'store'])->name('content.store');
 Route::get('/contents/{content:id}/take', [ContentController::class, 'take'])->name('content.take');
 Route::get('/contents/{content:id}/return', [ContentController::class, 'return'])->name('content.return');
+Route::delete('/contents/{content:id}', [ContentController::class, 'delete'])->name('content.delete');
 
 require __DIR__.'/auth.php';
