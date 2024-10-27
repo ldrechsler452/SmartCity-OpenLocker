@@ -12,9 +12,6 @@ class Image extends Model
 {
     const IMAGE_DIRECTORY = '/var/www/html/storage/images';
 
-    /** @use HasFactory<\Database\Factories\ImageFactory> */
-    use HasFactory;
-
     public function store(string $originalName): Image
     {
         $uuid = Uuid::uuid4()->toString();
