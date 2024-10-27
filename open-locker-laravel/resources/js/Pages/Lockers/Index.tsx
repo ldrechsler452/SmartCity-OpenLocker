@@ -13,22 +13,21 @@ export default function Lockers({ lockers }: { lockers: Locker[] }) {
         >
             <Head title="Lockers" />
 
-            <div className="py-12">
+            <div className="py-0 sm:py-12">
                 <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
-                    <div className="overflow-hidden bg-white shadow-sm sm:rounded-lg dark:bg-gray-800">
+                    <div className="overflow-hidden sm:rounded-lg dark:bg-gray-800">
                         <div className="p-6 text-gray-900 dark:text-gray-100">
                             <div className='flex flex-col gap-4'>
                                 {lockers.map((locker) => (
                                     <div key={locker.id} className="w-100 p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                                         <Link href={`/lockers/${locker.id}`}>
-                                            <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Locker {locker.designation}</h5>
+                                            <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Locker {locker.content.name}</h5>
                                         </Link>
-                                        <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
-                                            Last opened at: {new Date(locker.last_opened_at).toLocaleString()}
-                                        </p>
-                                        <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
-                                            Is open: {locker.is_open ? 'Yes' : 'No'}
-                                        </p>
+                                        {locker.content.user_id &&
+                                            <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
+                                                Ausgeliehen
+                                            </p>
+                                        }
                                     </div>)
                                 )}
                             </div>
