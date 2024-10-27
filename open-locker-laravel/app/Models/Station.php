@@ -38,7 +38,7 @@ class Station extends Model
 
     public function setImage(Image $image): Station
     {
-        $this->setAttribute('image', $image->getId());
+        $this->setAttribute('image_id', $image->getId());
         return $this;
     }
 

@@ -5,32 +5,24 @@ namespace App\Models;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Facades\Storage;
 use Ramsey\Uuid\Uuid;
 use Symfony\Component\Uid\UuidV4;
 
 class Image extends Model
 {
-    const IMAGE_DIRECTORY = '/var/www/html/storage/images';
-
-    public function store(string $originalName): Image
+    public function __construct(array $attributes = [])
     {
+        parent::__construct($attributes);
+
         $uuid = Uuid::uuid4()->toString();
         $this->setAttribute('uuid', $uuid);
-        $this->setAttribute(
-            key: 'file_path',
-            value: self::IMAGE_DIRECTORY . '/' . $uuid
-        );
-        $this->setAttribute('original_name', $originalName);
-
-        // TODO: Store file
-
-        return $this;
     }
 
     public function remove(): void
     {
-        // TODO: Delete file from storage
-
+        Storage::delete($this->getAttribute('file_path'));
         $this->delete();
     }
 
@@ -44,9 +36,26 @@ class Image extends Model
         return $this->getAttribute('file_path');
     }
 
+    public function setFilePath(string $filePath): Image
+    {
+        $this->setAttribute('file_path', $filePath);
+        return $this;
+    }
+
     public function getUuid(): string
     {
         return $this->getAttribute('uuid');
+    }
+
+    public function getOriginalName(): string
+    {
+        return $this->getAttribute('original_name');
+    }
+
+    public function setOriginalName(string $originalName): Image
+    {
+        $this->setAttribute('original_name', $originalName);
+        return $this;
     }
 
     public function getCreatedAt(): Carbon

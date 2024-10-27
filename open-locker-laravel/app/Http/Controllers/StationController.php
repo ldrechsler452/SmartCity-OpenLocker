@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Content;
+use App\Models\Image;
 use App\Models\Locker;
 use App\Models\Station;
+use App\Services\ImageService;
+use Illuminate\Http\RedirectResponse;
 use Inertia\Inertia;
 use Inertia\Response;
 
@@ -45,18 +48,27 @@ class StationController extends Controller
         return Inertia::render('Stations/Create');
     }
 
-    public function store(): Response
+    public function store(): RedirectResponse
     {
+        $image = null;
+        $imageFile = null;
+        if (true === request()->filled('image')) {
+            $imageFile = request()->file('image');
+            $image = ImageService::store($imageFile);
+        }
+
         $station = (new Station())
             ->setName(request()->input('name'))
             ->setAddress(request()->input('address'))
-            ->setDistance(request()->input('distance'))
-            ->save();
+            ->setDistance(request()->input('distance'));
 
-        // TODO: Add image
+        if (null !== $imageFile)
+        {
+            $station->setImage($image);
+        }
 
-        return Inertia::render('Stations/Store', [
-            'station' => $station,
-        ]);
+        $station->save();
+
+        return redirect()->route('stations.index');
     }
 }
