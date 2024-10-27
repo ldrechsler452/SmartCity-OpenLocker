@@ -37,6 +37,14 @@ export type TLockerItem = {
     id: number;
     name: string;
     user_id: number | null;
+    image: {
+        id: number;
+        file_path: string;
+        uuid: string;
+        original_name: string;
+        created_at: string;
+        updated_at: string;
+    };
     created_at: Date;
     updated_at: Date;
 }

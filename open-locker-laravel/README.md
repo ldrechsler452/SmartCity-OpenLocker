@@ -1,4 +1,5 @@
 # TODO
+- LOCKER name auf der Lockers route
 - Ausleihen funktion mit Fach aufmachen (Endpoint done, needs testing)
 - Artikel retournieren (Endpoint done)
 - Bilder zu Artikeln
