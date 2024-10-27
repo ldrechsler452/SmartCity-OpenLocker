@@ -42,50 +42,35 @@ export default function CreateLocker({
 
             <form onSubmit={submit} className="mt-6 space-y-6">
                 <div>
-                    <InputLabel htmlFor="name" value="Name" />
+                    <InputLabel htmlFor="name" value="Name des Schliessfachs" />
 
                     <TextInput
-                        id="name"
+                        id="lockerDesignation"
                         className="mt-1 block w-full"
-                        value={data.name}
-                        onChange={(e) => setData('name', e.target.value)}
+                        value={data.lockerDesignation}
+                        onChange={(e) => setData('lockerDesignation', e.target.value)}
                         required
                         isFocused
                         autoComplete="name"
                     />
 
-                    <InputError className="mt-2" message={errors.name} />
+                    <InputError className="mt-2" message={errors.lockerDesignation} />
                 </div>
 
                 <div>
-                    <InputLabel htmlFor="address" value="Address" />
+                    <InputLabel htmlFor="itemName" value="Name des Gegenstandes" />
 
                     <TextInput
-                        id="address"
+                        id="itemName"
                         type="text"
                         className="mt-1 block w-full"
-                        value={data.address}
-                        onChange={(e) => setData('address', e.target.value)}
+                        value={data.itemName}
+                        onChange={(e) => setData('itemName', e.target.value)}
                         required
-                        autoComplete="address"
+                        autoComplete="itemName"
                     />
 
-                    <InputError className="mt-2" message={errors.address} />
-                </div>
-
-                <div>
-                    <InputLabel htmlFor="distance" value="Distanz" />
-
-                    <TextInput
-                        id="distance"
-                        type="text"
-                        className="mt-1 block w-full"
-                        value={data.distance}
-                        onChange={(e) => setData('distance', e.target.value)}
-                        required
-                    />
-
-                    <InputError className="mt-2" message={errors.address} />
+                    <InputError className="mt-2" message={errors.itemName} />
                 </div>
 
                 <div>
@@ -96,7 +81,7 @@ export default function CreateLocker({
                         }
                     }} />
 
-                    <InputError className="mt-2" message={errors.address} />
+                    <InputError className="mt-2" message={errors.image} />
                 </div>
 
                 <div className="flex items-center gap-4">

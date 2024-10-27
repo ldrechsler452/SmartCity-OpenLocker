@@ -94,7 +94,7 @@ export default function UpdateProfileInformation({
                         }
                     }} />
 
-                    <InputError className="mt-2" message={errors.address} />
+                    <InputError className="mt-2" message={errors.image} />
                 </div>
 
                 <div className="flex items-center gap-4">
