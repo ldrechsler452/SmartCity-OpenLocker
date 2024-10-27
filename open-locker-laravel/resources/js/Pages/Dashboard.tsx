@@ -20,7 +20,7 @@ export default function Dashboard({ content }: { content: TLockerItem[] }) {
                     <div className="overflow-hidden sm:rounded-lg dark:bg-gray-800">
                         <div className="p-6 text-gray-900 dark:text-gray-100">
                             <div className="flex flex-col gap-4">
-                                {content.map((item) => <div className="w-100 p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                                {content.map((item) => <div key={item.id} className="w-100 p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                                     <div className="text-gray-900 dark:text-gray-100">
                                         <Link href={`/lockers/${item.id}`}>
                                             <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{item.name}</h5>
