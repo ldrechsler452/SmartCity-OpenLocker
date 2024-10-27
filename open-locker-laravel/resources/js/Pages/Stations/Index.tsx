@@ -38,7 +38,6 @@ export default function Stations({ stations }: { stations: Station[] }) {
             <Head title="Stations" />
 
             <div className="py-0 sm:py-12">
-                {/* <pre>{JSON.stringify(stations, null, 2)}</pre> */}
                 <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
                     <div className="overflow-hidden sm:rounded-lg dark:bg-gray-800">
                         <div className="p-6 text-gray-900 dark:text-gray-100">
@@ -63,7 +62,7 @@ export default function Stations({ stations }: { stations: Station[] }) {
                                         </PrimaryButton>
                                     </Link>
                                 </div>
-                                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                                <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
                                     {filteredStations.map((station) => (
                                         <div key={station.id} className="w-100 p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 flex gap-2">
                                             <div className="flex-grow">
