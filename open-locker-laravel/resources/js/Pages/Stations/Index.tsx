@@ -73,7 +73,7 @@ export default function Stations({ stations }: { stations: Station[] }) {
                                                     <div>Adresse:</div>
                                                     <div>{station.address}</div>
                                                     <div>Entfernung:</div>
-                                                    <div>{station.distance} km</div>
+                                                    <div>{station.distance}</div>
                                                 </div>
                                             </div>
 
